@@ -26,3 +26,7 @@ jobs:
 
       - name: Lancer les tests
         run: mvn test
+      - name: SonarCloud Analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn clean verify sonar:sonar -Dsonar.projectKey=5b47eea90f672ea72952b1f54ed5df676b4d78f5 -Dsonar.host.url=https://sonarcloud.io/
